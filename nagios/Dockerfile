@@ -1,0 +1,60 @@
+FROM ubuntu:trusty
+
+RUN apt-get update && apt-get install \
+        autoconf \
+        gcc \
+        libc6 \
+        build-essential \
+        bc \
+        gawk \
+        dc \
+        gettext \
+        libmcrypt-dev \
+        libssl-dev \
+        make \
+        unzip \
+        apache2 \
+        apache2-utils \
+        php5 \
+        libgd2-xpm-dev
+
+RUN useradd -m -s nagios
+RUN groupadd nagios
+RUN usermod -G nagios nagios
+RUN groupadd nagcmd
+RUN usermod -a -G nagcmd nagios
+RUN usermod -a -G nagcmd www-data
+
+WORKDIR /tmp
+RUN wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.2.4.tar.gz
+RUN wget https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz
+
+RUN tar xzf nagios-4.2.4.tar.gz
+WORKDIR /tmp/nagios-4.2.4
+
+RUN ./configure --with-command-group=nagcmd --with-httpd-conf=/etc/apache2/sites-enabled
+RUN make all
+RUN make install
+RUN make install-init
+RUN make install-config
+RUN make install-commandmode
+RUN update-rc.d nagios defaults
+
+RUN make install-webconf
+RUN a2enmod rewrite
+RUN a2enmod cgi
+RUN htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin changeme
+
+RUN ufw allow Apache
+RUN ufw reload
+
+WORKDIR /tmp/nagios-plugins-2.1.4
+
+RUN ./tools/setup
+RUN ./configure
+RUN gmake
+RUN gmake install
+
+
+
+
