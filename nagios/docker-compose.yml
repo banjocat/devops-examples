@@ -1,0 +1,9 @@
+version: '2'
+services:
+    nagios:
+        image: banjocat/nagios:4.2.4
+        build: .
+        ports:
+            - "9000:80"
+
+
