@@ -10,4 +10,5 @@ COPY ./requirements.txt /fabric/requirements.txt
 RUN pip install -r /fabric/requirements.txt
 COPY ./fabfile.py /fabric/fabfile.py
 ENV FAB help
-CMD fab $FAB
+ENV HOSTS localhost
+CMD fab -H $HOSTS $FAB
