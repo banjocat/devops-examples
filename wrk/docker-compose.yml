@@ -1,0 +1,13 @@
+version: '2'
+services:
+    wrk:
+        image: banjocat/wrk
+        build: .
+        environment:
+            URL: nginx
+        depends_on:
+            - nginx
+    nginx:
+        image: nginx
+
+
