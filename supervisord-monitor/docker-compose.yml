@@ -1,0 +1,12 @@
+version: '2'
+services:
+    monitor:
+        image: banjocat/supervisord-monitor
+        build: .
+        environment:
+            SERVERS: "supervisord1=localhost,supervisord2=localhost"
+            USERNAME: admin
+            PASSWORD: admin
+            PORT: 9001
+        ports:
+            - "9000:80"
