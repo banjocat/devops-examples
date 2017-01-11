@@ -17,6 +17,7 @@ WORKDIR /app/supervisord-monitor
 COPY ./supervisord.php.j2 .
 COPY ./start_monitor.sh .
 EXPOSE 80
+ENV PORT 9001
 CMD ./start_monitor.sh
 
 
