@@ -18,4 +18,4 @@ https://github.com/banjocat/docker-devops-examples/tree/master/wrk
 
 ## Example
 
-      docker run -e URL=www.google.com banjocat/wrk
+      docker run -e WRK_URL=www.google.com banjocat/wrk
