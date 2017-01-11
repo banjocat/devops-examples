@@ -20,4 +20,4 @@ https://github.com/banjocat/docker-devops-examples/tree/master/supervisord-monit
 
 ## Example
 
-      docker run -e SERVERS="server1=localhost",USERNAME=admin,PASSWORD=admin banjocat/supervisord-monitor
+      docker run -p "9000:80" -e SERVERS="server1=localhost" -e USERNAME=admin -e PASSWORD=admin banjocat/supervisord-monitor
