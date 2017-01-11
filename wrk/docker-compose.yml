@@ -4,7 +4,7 @@ services:
         image: banjocat/wrk
         build: .
         environment:
-            URL: nginx
+            WRK_URL: nginx
         depends_on:
             - nginx
     nginx:

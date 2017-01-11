@@ -11,10 +11,11 @@ RUN git clone https://github.com/wg/wrk.git
 WORKDIR /tmp/wrk
 RUN make -s
 
-ENV CONNECTIONS 300
-ENV THREADS 3
-ENV URL localhost
-ENV DURATION 10
+ENV WRK_CONNECTIONS 300
+ENV WRK_THREADS 3
+ENV WRK_URL localhost
+ENV WRK_DURATION 10
+ENV WRK_METHOD GET
 
-COPY ./script.lua /tmp/.
-CMD ./wrk -s /tmp/script.lua -d $DURATION -t $THREADS -c $CONNECTIONS http://${URL}
+COPY ./start_wrk.sh /tmp/wrk/start_wrk.sh
+CMD ./start_wrk.sh
