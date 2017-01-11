@@ -20,4 +20,4 @@ https://github.com/banjocat/docker-devops-examples/tree/master/supervisord-monit
 
 ## Example
 
-      docker run -e URL=www.google.com banjocat/wrk
+      docker run -e SERVERS="server1=localhost",USERNAME=admin,PASSWORD=admin banjocat/supervisord-monitor
