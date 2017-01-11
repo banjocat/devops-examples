@@ -3,10 +3,11 @@ RUN apt-get update && apt-get install -y \
         git \
         php5 \
         python-dev \
-        python-setuptools
+        python-setuptools \
+        python-pip
 
 
-RUN easy_install j2cli
+RUN pip install j2cli
 RUN mkdir /app
 WORKDIR /app
 RUN git clone https://github.com/mlazarov/supervisord-monitor.git

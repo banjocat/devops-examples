@@ -14,14 +14,14 @@ $config['enable_alarm'] = true;
 $config['show_host'] = false;
 
 $config['supervisor_servers'] = array(
-        {% set servers = env['SERVERS'].split(',') %}
+        {% set servers = SERVERS.split(',') %}
         {% for server in servers %}
         {% set describe = server.split('=') %}
         '{{ describe[0] }}' => array(
             'url' => 'http://{{describe[1]}}',
-            'port' => '{{env['PORT']}}',
-            'username' => '{{ env['USERNAME'] }}',
-            'password' => '{{ env['PASSWORD'] }}'
+            'port' => '{{PORT}}',
+            'username' => '{{ USERNAME }}',
+            'password' => '{{ PASSWORD }}'
             ),
         {% endfor %}
 );
