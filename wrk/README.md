@@ -10,7 +10,7 @@ https://github.com/wg/wrk
 |WRK_CONNECTIONS | 300 | Number of connections to keep open|
 |WRK_THREADS | 3 | Number of threads to use|
 |WRK_URL  | localhost | URL to send request|
-|WRK_DURATION | 10 | Default to piz|
+|WRK_DURATION | 10 | Duration to run test|
 
 
 ## Example
