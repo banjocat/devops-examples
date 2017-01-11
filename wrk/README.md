@@ -1,5 +1,8 @@
-# wrk
+# from wrk
 https://github.com/wg/wrk
+
+# repo
+https://github.com/banjocat/docker-devops-examples/tree/master/wrk
 
 ## Environmental variables
 | Variable | Default |What it does|
