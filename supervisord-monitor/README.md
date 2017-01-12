@@ -15,6 +15,8 @@ https://github.com/banjocat/docker-devops-examples/tree/master/supervisord-monit
 | Variable | Default |What it does|
 |----------|--------|------|
 |PORT| 9001 | Port to access supervisord|
+|CONTACT_EMAIL| none@none.com | Change contact email link|
+|SERVER_NAME | Support Center | Change banner bar title name|
 
 
 
