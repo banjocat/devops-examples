@@ -1,5 +1,0 @@
-version: '2'
-services:
-    fabric:
-        image: banjocat/fabric
-        build: .
