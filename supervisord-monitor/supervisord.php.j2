@@ -18,7 +18,7 @@ $config['supervisor_servers'] = array(
         {% for server in servers %}
         {% set describe = server.split('=') %}
         '{{ describe[0] }}' => array(
-            'url' => 'http://{{describe[1]}}',
+            'url' => 'http://{{describe[1]}}/RPC2',
             'port' => '{{PORT}}',
             'username' => '{{ USERNAME }}',
             'password' => '{{ PASSWORD }}'
@@ -30,8 +30,8 @@ $config['supervisor_servers'] = array(
 $config['timeout'] = 3;
 
 // Path to Redmine new issue url
-$config['redmine_url'] = 'http://redmine.url/path_to_new_issue_url';
+// $config['redmine_url'] = 'http://redmine.url/path_to_new_issue_url';
 
 // Default Redmine assigne ID
-$config['redmine_assigne_id'] = '69';
+// $config['redmine_assigne_id'] = '69';
 

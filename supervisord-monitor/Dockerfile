@@ -15,9 +15,12 @@ RUN git clone https://github.com/mlazarov/supervisord-monitor.git
 
 WORKDIR /app/supervisord-monitor
 COPY ./supervisord.php.j2 .
+COPY ./welcome.php.j2 .
 COPY ./start_monitor.sh .
 EXPOSE 80
 ENV PORT 9001
+ENV CONTACT_EMAIL none@none.com
+ENV SERVER_NAME "Support Center"
 CMD ./start_monitor.sh
 
 

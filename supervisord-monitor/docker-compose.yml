@@ -4,9 +4,15 @@ services:
         image: banjocat/supervisord-monitor
         build: .
         environment:
-            SERVERS: "supervisord1=localhost,supervisord2=localhost"
-            USERNAME: admin
-            PASSWORD: admin
+            SERVERS: "super=super,showitagain=super"
+            CONTACT_EMAIL: "jackmuratore@gmail.com"
+            USERNAME: user
+            PASSWORD: 123
             PORT: 9001
+            SERVER_NAME: Awesome Dashboard
         ports:
             - "9000:80"
+    super:
+        build: ./supervisord_test
+        ports:
+            - "9001:9001"
