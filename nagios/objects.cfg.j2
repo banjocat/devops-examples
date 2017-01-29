@@ -1,6 +1,5 @@
 {% for host in hosts %}
 define host {
-    use linux-server
 {%- for key in host %}
     {{ key }} {{ host[key] }}
 {%- endfor %}
