@@ -57,7 +57,17 @@ RUN make install
 EXPOSE 80
 
 COPY ./nagios.ini /etc/supervisor/conf.d/nagios.conf
-CMD supervisord -n -c /etc/supervisor/supervisord.conf
+RUN apt-get install -y python-pip
+RUN pip install --upgrade pip
+COPY ./requirements.txt /tmp
+RUN pip install -r /tmp/requirements.txt
+COPY ./create_config.py /tmp/.
+COPY ./objects.cfg.j2 /tmp/.
+COPY ./start_up.sh /tmp/.
+RUN chmod 700 /tmp/start_up.sh
+RUN mkdir -p /usr/local/nagios/etc/objects/docker
+RUN echo "cfg_dir=/usr/local/nagios/etc/objects/docker" >> /usr/local/nagios/etc/nagios.cfg
+CMD /tmp/start_up.sh
 
 
 

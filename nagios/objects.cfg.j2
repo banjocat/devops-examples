@@ -1,0 +1,14 @@
+{% for host in hosts %}
+define host {
+    use linux-server
+{%- for key in host %}
+    {{ key }} {{ host[key] }}
+{%- endfor %}
+}
+{% endfor %}
+
+{%- for group in groups %}
+{%- for key in group.keys() %}
+    {{ key }} = {{ group[key] }}
+{%- endfor %}
+{%- endfor %}
