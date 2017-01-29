@@ -5,5 +5,7 @@ services:
         build: .
         ports:
             - "9000:80"
+        environment:
+            SERVER_0: "host_name=www.jackmuratore.com,alias=jack,address=jackmuratore.com"
 
 
