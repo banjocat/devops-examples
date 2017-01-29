@@ -11,7 +11,7 @@ host {
     user linux-server
     host_name jackmuratore.com
     alias jack
-    address jackmuratore.com
+    address www.jackmuratore.com
 }
 ```
 
