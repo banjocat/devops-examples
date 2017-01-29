@@ -7,7 +7,7 @@ with open('./objects.cfg.j2') as f:
 def get_host_config_dict():
     result = []
     for i in xrange(0, 1000):
-        key = 'SERVER_%s' % i
+        key = 'HOST_%s' % i
         if key not in os.environ:
             break
         host = {}
