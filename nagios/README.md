@@ -1,9 +1,9 @@
 ## Nagios
-Everything but service checks can be defined as an environmental variable
+Nagios objects are defined as environmental variables
 
 ### Hosts
 ```
-HOST_0="user=linux-server;host_name=jackmuratore.com;alias=jack;address=www.jackmuratore.com"
+host_0="user=linux-server;host_name=jackmuratore.com;alias=jack;address=www.jackmuratore.com"
 ```
 This will expand to
 ```
@@ -15,7 +15,26 @@ host {
 }
 ```
 
-    
-Hosts must be defined sequentiall. So `HOST_0` and `HOST_1`.. but then don't jump to `HOST_10`. It will map any config for nagios hosts via `key=value` with semicolons seperating the next key.
+The parser uses the first part of the key to determine the object name. Another example would be
+```
+command_12="command_name=check_app;command_line=nmap -p 80 localhost"
 
-### Groups.. work in progress
+This will expand to
+
+```
+host {
+    command_name check_app
+    command_line nmap -p 80 localhost
+}
+```
+
+Current supported defines are
+* host
+* hostgroup
+* service
+* contact
+* service
+* contactgroup
+* command
+
+    

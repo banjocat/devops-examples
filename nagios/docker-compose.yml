@@ -6,4 +6,8 @@ services:
         ports:
             - "9000:80"
         environment:
-            HOST_0: "use=linux-server;host_name=www.jackmuratore.com;alias=jack;address=www.jackmuratore.com"
+            host_0: "use=linux-server;host_name=www.jackmuratore.com;alias=jack;address=www.jackmuratore.com"
+            host_1: "use=linux-server;host_name=balancely;address=www.balance.ly"
+            command_0: "command_name=check_app;command_line=nmap -p 80 localhost"
+
+

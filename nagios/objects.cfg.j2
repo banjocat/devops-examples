@@ -1,13 +1,9 @@
-{% for host in hosts %}
-define host {
-{%- for key in host %}
-    {{ key }} {{ host[key] }}
+{%- for define in nagios_defines -%}
+{%- for group in nagios_defines[define] %}
+define {{ define }} {
+{%- for key in group %}
+    {{ key }} {{ group[key] }}
 {%- endfor %}
 }
 {% endfor %}
-
-{%- for group in groups %}
-{%- for key in group.keys() %}
-    {{ key }} = {{ group[key] }}
-{%- endfor %}
-{%- endfor %}
+{%- endfor -%}
