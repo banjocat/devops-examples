@@ -1,3 +1,7 @@
+'''
+This script is what parses the environmental variables
+It then outputs the nagios config file
+'''
 import os
 import re
 
@@ -9,6 +13,11 @@ with open('./objects.cfg.j2') as f:
 
 
 def parse_envs():
+    '''
+    Goes through all the environmental variables
+    Any matching a nagios define it adds
+    for jinja2 to use
+    '''
     nagios_defines = {
             'host': [],
             'hostgroup': [],
@@ -28,6 +37,10 @@ def parse_envs():
 
 
 def get_host_config_dict(configs):
+    '''
+    Takes one environmental variable
+    and splits it into a map
+    '''
     host = {}
     configs_split = configs.split(';')
     for config in configs_split:
