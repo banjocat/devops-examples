@@ -1,7 +1,7 @@
 ## Nagios
 Nagios objects are defined as environmental variables
 
-### Hosts
+### Examples
 ```
 host_0="user=linux-server;host_name=jackmuratore.com;alias=jack;address=www.jackmuratore.com"
 ```
