@@ -18,9 +18,8 @@ host {
 The parser uses the first part of the key to determine the object name. Another example would be
 ```
 command_12="command_name=check_app;command_line=nmap -p 80 localhost"
-
+```
 This will expand to
-
 ```
 host {
     command_name check_app
