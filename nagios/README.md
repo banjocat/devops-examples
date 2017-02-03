@@ -1,7 +1,15 @@
 ## Nagios
 Nagios objects are defined as environmental variables
 
-### Examples
+### Syntax
+
+All configs are defined as
+```
+(config_name)_#="key1=value;key2=value"
+```
+
+#### Examples
+
 ```
 host_0="user=linux-server;host_name=jackmuratore.com;alias=jack;address=www.jackmuratore.com"
 ```
@@ -27,13 +35,3 @@ command {
 }
 ```
 
-Current supported defines are
-* host
-* hostgroup
-* service
-* contact
-* service
-* contactgroup
-* command
-
-    

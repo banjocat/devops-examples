@@ -18,21 +18,18 @@ def parse_envs():
     Any matching a nagios define it adds
     for jinja2 to use
     '''
-    nagios_defines = {
-            'host': [],
-            'hostgroup': [],
-            'service': [],
-            'contact': [],
-            'service': [],
-            'contactgroup': [],
-            'command': [],
-            }
-    for define in nagios_defines:
-        regexp = re.compile('%s_\d+' % define)
-        for env in os.environ:
-            if regexp.match(env):
-                config = get_host_config_dict(os.environ[env])
-                nagios_defines[define].append(config)
+    nagios_defines = {}
+    regexp = re.compile('([a-z]+)_\d+')
+    for env in os.environ:
+        match = regexp.match(env)
+        if not match:
+            continue
+        define_name = match.groups(0)[0]
+        # Create the key as an array if doesnt exist yet
+        if define_name not in nagios_defines:
+            nagios_defines[define_name] = []
+        config = get_host_config_dict(os.environ[env])
+        nagios_defines[define_name].append(config)
     return nagios_defines
 
 
