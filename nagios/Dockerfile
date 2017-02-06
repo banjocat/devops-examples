@@ -67,6 +67,8 @@ COPY ./start_up.sh /tmp/.
 RUN chmod 700 /tmp/start_up.sh
 RUN mkdir -p /usr/local/nagios/etc/objects/docker
 RUN echo "cfg_dir=/usr/local/nagios/etc/objects/docker" >> /usr/local/nagios/etc/nagios.cfg
+# Remove localhost
+RUN sed -i s/cfg_file..usr.local.nagios.etc.objects.localhost.cfg// /usr/local/nagios/etc/nagios.cfg
 CMD /tmp/start_up.sh
 
 
