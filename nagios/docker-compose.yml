@@ -6,10 +6,16 @@ services:
         ports:
             - "9000:80"
         environment:
-            host_0: "use=linux-server;host_name=www.jackmuratore.com;alias=jack;address=www.jackmuratore.com"
-            host_1: "use=linux-server;host_name=www.tivix.com;address=www.tivix.com"
-            service_0: "use=generic-service;host_name=www.tivix.com;service_description=HTTP;check_command=check_http;notifications_enabled=0"
-            service_1: "use=generic-service;host_name=www.jackmuratore.com;service_description=HTTP;check_command=check_http;notifications_enabled=0"
+            host_0: "use=linux-server;host_name=www.jackmuratore.com;\
+                     alias=jack;address=www.jackmuratore.com;hostgroups=love"
+            host_1: "use=linux-server;host_name=www.tivix.com;\
+                     address=www.tivix.com;alias=tivix;hostgroups=love"
+            hostgroup_0: "hostgroup_name=love;alias=love"
+            service_0: "use=generic-service;host_name=www.tivix.com;\
+                        service_description=HTTP;check_command=check_http;notifications_enabled=0;servicegroups=webservers"
+            service_1: "use=generic-service;host_name=www.jackmuratore.com;\
+                        service_description=HTTP;check_command=check_http;notifications_enabled=0;servicegroups=webservers"
+            servicegroup_0: "servicegroup_name=webservers;alias=webservers"
 
 
 
