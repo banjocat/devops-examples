@@ -9,5 +9,5 @@ Just a quick demo of one way to use elasticsearch as a timeseries database
 ## Conclusion
 My two favorite database tools are postgres and elasticsearch.
 They compliment each other very well. For very high elasticsearch writes
-I would add logstash and filebeat. For even more througput I would add kafka.
+I would add logstash and filebeat. For even more throughput I would add kafka.
 
