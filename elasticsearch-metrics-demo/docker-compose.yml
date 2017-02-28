@@ -1,0 +1,21 @@
+version: '2'
+services:
+    elastic:
+        image: elasticsearch:5
+    grafana:
+        image: grafana/grafana
+        ports:
+            - "3000:3000"
+        environment:
+            GF_SECURITY_ADMIN_PASSWORD: admin
+    metricdemo:
+        image: python:2
+        volumes:
+            - ./create_metric.py:/tmp/create_metric.py
+            - ./requirements.txt:/tmp/requirements.txt
+        command: /bin/bash -c "pip install -r /tmp/requirements.txt && python /tmp/create_metric.py"
+        depends_on:
+            - elastic
+            - grafana
+
+
