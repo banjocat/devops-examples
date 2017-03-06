@@ -9,7 +9,7 @@ es = Elasticsearch(['elastic'])
 while True:
     for i in xrange(random.randrange(1, 20)):
         es.index(index='metric', doc_type='metric', body={
-            'pizza': 'peps',
+            'metric_name': 'pizza',
             'timestamp': datetime.now(),
             })
     sleep(1)
