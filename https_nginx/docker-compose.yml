@@ -1,0 +1,5 @@
+version: '2'
+services:
+    nginx:
+        image: banjocat/https_nginx
+        build: .
