@@ -6,5 +6,5 @@ RUN apt-get update -y && apt-get install -y \
 ADD https://dl.eff.org/certbot-auto /tmp/.
 WORKDIR /tmp
 RUN chmod 700 certbot-auto
-RUN ./certbot-auto
+RUN ./certbot-auto -q
 
