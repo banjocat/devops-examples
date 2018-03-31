@@ -1,7 +1,26 @@
 {
   "client": {
-    "name": "server",
-    "address": "localhost",
-    "subscriptions": [ "ALL" ]
+    "socket": {
+      "bind": "127.0.0.1"
+    },
+    "name": "1a23b28df9c4",
+    "address": ,
+    "deregister":  true,
+    
+    "subscriptions": [
+      
+        "all"
+      
+        ,"default"
+      
+    ],
+    
+    "keepalive": {
+      "thresholds": {
+         "warning": 120,
+         "critical": 180
+      },
+      "handler": "default"
+    }
   }
 }

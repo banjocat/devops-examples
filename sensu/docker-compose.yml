@@ -11,9 +11,15 @@ services:
     image: sstarcher/sensu:1.2
     volumes:
       - ./sensu/conf.d:/etc/sensu/conf.d
-      - ./sensu/check.d:/etc/sensu/check.d
       - ./sensu/handlers.d:/etc/sensu/handlers.d
     command: server
+  client:
+    image: sstarcher/sensu:1.2
+    volumes:
+      - ./sensu/conf.d:/etc/sensu/conf.d
+      - ./sensu/check.d:/etc/sensu/check.d
+      - ./sensu/handlers.d:/etc/sensu/handlers.d
+    command: client
   api:
     image: sstarcher/sensu:1.2
     volumes:
@@ -28,6 +34,7 @@ services:
       - ./uchiwa:/config
     ports:
       - 3001:3000
+
 
 
 
