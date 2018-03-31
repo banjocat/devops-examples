@@ -1,9 +1,0 @@
-   {
-     "client": {
-       "name": "i-041256",
-       "address": "client",
-       "subscriptions": [
-         "all"
-       ]
-     }
-   }
