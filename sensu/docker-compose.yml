@@ -10,6 +10,9 @@ services:
     command: server
   client:
     image: sstarcher/sensu:1.2
+    environment:
+      CLIENT_NAME: client1
+      CLIENT_ADDRESS: client
     volumes:
       - ./client/conf.d:/etc/sensu/conf.d
       - ./client/check.d:/etc/sensu/check.d
