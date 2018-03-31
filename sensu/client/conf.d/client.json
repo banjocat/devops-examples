@@ -1,0 +1,26 @@
+{
+  "client": {
+    "socket": {
+      "bind": "127.0.0.1"
+    },
+    "name": "f88ae37ea6d3",
+    "address": ,
+    "deregister":  true,
+    
+    "subscriptions": [
+      
+        "all"
+      
+        ,"default"
+      
+    ],
+    
+    "keepalive": {
+      "thresholds": {
+         "warning": 120,
+         "critical": 180
+      },
+      "handler": "default"
+    }
+  }
+}

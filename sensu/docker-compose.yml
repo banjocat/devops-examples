@@ -2,11 +2,6 @@ version: '3'
 services:
   redis:
     image: redis:3
-  rabbitmq:
-    image: rabbitmq:3
-    environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASSWORD: guest
   sensu:
     image: sstarcher/sensu:1.2
     volumes:
