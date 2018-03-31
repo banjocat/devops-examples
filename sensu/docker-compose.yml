@@ -16,15 +16,13 @@ services:
   client:
     image: sstarcher/sensu:1.2
     volumes:
-      - ./sensu/conf.d:/etc/sensu/conf.d
-      - ./sensu/check.d:/etc/sensu/check.d
-      - ./sensu/handlers.d:/etc/sensu/handlers.d
+      - ./client/conf.d:/etc/sensu/conf.d
+      - ./client/check.d:/etc/sensu/check.d
     command: client
   api:
     image: sstarcher/sensu:1.2
     volumes:
-      - ./sensu/conf.d:/etc/sensu/conf.d
-      - ./sensu/check.d:/etc/sensu/check.d
+      - ./api/conf.d:/etc/sensu/conf.d
     ports:
       - 4567:4567
     command: api
