@@ -1,0 +1,35 @@
+version: '3'
+services:
+  redis:
+    image: redis:3
+  rabbitmq:
+    image: rabbitmq:3
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASSWORD: guest
+  sensu:
+    image: sstarcher/sensu:1.2
+    volumes:
+      - ./sensu/conf.d:/etc/sensu/conf.d
+      - ./sensu/check.d:/etc/sensu/check.d
+      - ./sensu/handlers.d:/etc/sensu/handlers.d
+    command: server
+  api:
+    image: sstarcher/sensu:1.2
+    volumes:
+      - ./sensu/conf.d:/etc/sensu/conf.d
+      - ./sensu/check.d:/etc/sensu/check.d
+    ports:
+      - 4567:4567
+    command: api
+  dashboard:
+    image: uchiwa/uchiwa
+    volumes:
+      - ./uchiwa:/config
+    ports:
+      - 3001:3000
+
+
+
+
+

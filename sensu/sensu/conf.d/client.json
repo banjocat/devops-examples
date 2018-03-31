@@ -1,0 +1,7 @@
+{
+  "client": {
+    "name": "server",
+    "address": "localhost",
+    "subscriptions": [ "ALL" ]
+  }
+}

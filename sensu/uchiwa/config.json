@@ -1,0 +1,15 @@
+{
+    "sensu": [
+        {
+            "name": "Sensu",
+            "host": "api.",
+            "ssl": false,
+            "timeout": 5000
+        }
+    ],
+    "uchiwa": {
+        "port": 3000,
+        "stats": 10,
+        "refresh": 10000
+    }
+}
