@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "nginx_process": {
+      "command": "check-process.rb -p nginx",
+      "subscribers": [
+        "proxy"
+      ],
+      "interval": 60,
+      "hooks": {
+        "non-zero": {"command": "ps aux"}
+      }
+    }
+  }
+}
