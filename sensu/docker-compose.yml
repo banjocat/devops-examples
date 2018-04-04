@@ -3,27 +3,24 @@ services:
   redis:
     image: redis:3
   sensu:
-    image: sstarcher/sensu:1.2
+    build: ./sensu
     volumes:
-      - ./sensu/conf.d:/etc/sensu/conf.d
-      - ./sensu/handlers.d:/etc/sensu/handlers.d
-    command: server
+      - ./server/conf.d:/etc/sensu/conf.d
+      - ./server/handlers.d:/etc/sensu/handlers.d
+    command: sensu-server -d /etc/sensu
   client:
-    image: sstarcher/sensu:1.2
-    environment:
-      CLIENT_NAME: client1
-      CLIENT_ADDRESS: client
+    build: ./sensu
     volumes:
       - ./client/conf.d:/etc/sensu/conf.d
       - ./client/check.d:/etc/sensu/check.d
-    command: client
+    command: sensu-client -d /etc/sensu
   api:
-    image: sstarcher/sensu:1.2
+    build: ./sensu
     volumes:
       - ./api/conf.d:/etc/sensu/conf.d
     ports:
       - 4567:4567
-    command: api
+    command: sensu-api -d /etc/sensu
   dashboard:
     image: uchiwa/uchiwa
     volumes:

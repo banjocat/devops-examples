@@ -5,6 +5,6 @@
 
         "db": 0,
         "auto_reconnect": true,
-        "reconnect_on_error": true
+        "reconnect_on_error": false
     }
 }
