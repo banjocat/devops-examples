@@ -3,7 +3,7 @@
     "socket": {
       "bind": "127.0.0.1"
     },
-    "name": "client1",
+    "name": "client2",
     "address": "client",
     "deregister":  true,
     

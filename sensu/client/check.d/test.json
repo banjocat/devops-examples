@@ -1,7 +1,7 @@
 {
   "checks": {
     "nginx_process": {
-      "command": "check-process.rb -p nginx",
+      "command": "exit 2",
       "subscribers": [
         "proxy"
       ],
