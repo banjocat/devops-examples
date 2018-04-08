@@ -1,19 +1,20 @@
-version: '2'
+version: '3'
 services:
   drone-server:
-    image: drone/drone:0.7
+    image: drone/drone:0.8
     ports:
       - "8008:8000"
     environment:
       - DRONE_OPEN=true
-      - DRONE_HOST=localhost
+      - DRON_ADMIN=banjocat
+      - DRONE_HOST=http://localhost
       - DRONE_GITHUB=true
       - DRONE_GITHUB_CLIENT=${DRONE_GITHUB_CLIENT}    
       - DRONE_GITHUB_SECRET=${DRONE_GITHUB_SECRET}
       - DRONE_SECRET=${DRONE_SECRET}
       - DATABASE_CONFIG=":memory:"
   drone-agent:
-    image: drone/drone:0.7
+    image: drone/drone:0.8
     command: agent
     restart: always
     depends_on:
