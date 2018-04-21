@@ -1,0 +1,42 @@
+version: '3'
+services:
+  sentry:
+    image: sentry:8
+    environment:
+      SENTRY_SECRET_KEY: abcdewfghijklmnop
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_REDIS_HOST: redis
+      SENTRY_DB_NAME: sentry
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD: sentry 
+    ports:
+      - 9000:9000
+  sentry-cron:
+    image: sentry:8
+    environment:
+      SENTRY_SECRET_KEY: abcdewfghijklmnop
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_REDIS_HOST: redis
+      SENTRY_DB_NAME: sentry
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD: sentry 
+    command: sentry run cron
+  sentry-worker:
+    image: sentry:8
+    environment:
+      SENTRY_SECRET_KEY: abcdewfghijklmnop
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_REDIS_HOST: redis
+      SENTRY_DB_NAME: sentry
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD: sentry 
+    command: sentry run worker
+  redis:
+    image: redis
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: sentry
+      POSTGRES_PASSWORD: sentry
+
+
