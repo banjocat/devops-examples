@@ -2,6 +2,7 @@ version: '3'
 services:
   teleport:
     build: ./teleport
+
     ports:
       - 3022:3022 # Service
       - 3080:3080 # Web  This is https
