@@ -4,5 +4,5 @@ services:
     build: ./teleport
     ports:
       - 3022:3022 # Service
-      - 3080:3080 # Web
+      - 3080:3080 # Web  This is https
       - 3023:3023 # Ssh
